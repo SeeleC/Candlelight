@@ -191,31 +191,6 @@ static List<String> listGameVersions(String minInclusive, String maxExclusive) {
 }
 
 
-tasks.register('buildAndPublishAll') {
-    dependsOn ':clean'
-    dependsOn ':common:clean'
-    dependsOn ':fabric:clean'
-    dependsOn ':forge:clean'
-    dependsOn ':build'
-    dependsOn ':forge:build'
-    dependsOn ':fabric:build'
-    dependsOn ':forge:curseforge'
-    dependsOn ':forge:modrinth'
-    dependsOn ':fabric:curseforge'
-    dependsOn ':fabric:modrinth'
-    dependsOn ':publishToMavenLocal'
-    dependsOn ':forge:publishToMavenLocal'
-    dependsOn ':fabric:publishToMavenLocal'
-    dependsOn ':publish'
-    dependsOn ':forge:publish'
-    dependsOn ':fabric:publish'
-    finalizedBy ':gitTag'
-
-    group = 'build'
-    description = 'Runs clean, build, and publish neoforge and fabric'
-}
-
-
 tasks.register('gitTag') {
     group = 'build'
     description = 'Create and push git tag from project version'
